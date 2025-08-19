@@ -1,4 +1,4 @@
-# Customer Relationship Management System
+# Small Customer Relationship Management System (SCRM)
 
 # Project Description
 A Node.js + Express.js based CRM system where users can register, login, and Admin manages users data securely.
