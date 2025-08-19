@@ -1,0 +1,146 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.user-text .online {
+    color: #00e676;
+    font-size: 12px;
+}
+
+/* Container for the whole dashboard */
+.Maindiv {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar (left) */
+.div1 {
+    width: 250px;
+    background-color: #1c1f26;
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.div1 p:first-child {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Welcome Box */
+.div1 > div {
+    margin-bottom: 20px;
+}
+
+.div1 > div > div:nth-child(2) p {
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+/* Navigation menu */
+nav ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+nav ul li {
+    margin: 15px 0;
+}
+
+nav ul li a  {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+nav  button {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+    border: none;
+}
+nav ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+nav button:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Main content (right side) */
+.div2 {
+    flex-grow: 1;
+    background-color: #edf0f4;
+    padding: 40px;
+}
+
+.div2 > p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.div2 > div {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.div2 > div > div {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    min-width: 200px;
+    text-align: center;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.div2 > div > div:nth-child(2) {
+    background-color: #17a2b8;
+}
+
+.div2 > div > div:nth-child(3) {
+    background-color: #dc3545;
+}
+
+.div2 > div > div:nth-child(4) {
+    background-color: #6f42c1;
+}
+
+.div2 > div > div a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+}
+
+.div2 > div > div:hover {
+    transform: scale(1.05);
+}

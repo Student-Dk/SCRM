@@ -1,0 +1,68 @@
+  body {
+      margin: 0;
+
+  }
+
+  /* -------------------------------------- */
+
+  header {
+
+      max-width: 100%;
+      min-width: 500px;
+      height: 60px;
+      align-content: center;
+      background-color: black;
+      position: relative;
+
+  }
+
+  header a {
+      color: white;
+      text-decoration: none;
+      position: absolute;
+      bottom: 20px;
+
+
+
+  }
+
+  .div1 {
+      height: 100vb;
+      align-content: center;
+      text-align: center;
+      font-size: 50px;
+      background-color: rgb(252, 88, 43);
+      color: white;
+
+
+  }
+
+
+  footer {
+
+      height: 80px;
+      background-color: black;
+      color: white;
+      text-align: center;
+      align-content: center;
+
+  }
+
+  .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;  /* Bootstrap blue */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;  /* Darker blue on hover */
+}
+
+

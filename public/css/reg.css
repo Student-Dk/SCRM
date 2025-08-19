@@ -1,0 +1,60 @@
+body{
+    background-color: rgb(218, 210, 210);
+    margin: 0;
+}
+
+.container{
+
+    margin:  auto;
+    margin-top: 150px;
+    margin-right: 300px;
+   
+    max-width: 450px;
+
+    min-width: 300px;
+  
+    padding: 20px;
+    position: relative;
+    
+   
+}
+
+.container input:not([type="radio"]){
+   
+    width: 300px;
+    height: 20px;
+    padding: 2px;
+    margin-top: 10px;
+    
+}
+
+
+
+
+.p1{
+    font-size: 60px;
+    margin-left: 200px;
+    margin-top: 150px;
+   
+   
+    
+}
+
+button{
+    position: absolute;
+    right: 20px;
+    padding: 10px;
+    width: 100px;
+    cursor: pointer;
+    background-color: rgb(21, 5, 243);
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+}
+
+button:hover{
+   background-color: rgb(8, 8, 118);
+}
+
+    
