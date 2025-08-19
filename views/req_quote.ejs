@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Dashboard</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* ------------------ Layout ------------------ */
+        body {
+            display: flex;
+            background-color: #f0f3f6;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* ------------------ Sidebar ------------------ */
+        .sidebar {
+            width: 250px;
+            background-color: #1c1f26;
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile img {
+            width: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .welcome {
+            font-size: 14px;
+        }
+
+        .status {
+            display: block;
+            font-size: 12px;
+            color: #00e676;
+        }
+
+        /* ------------------ Navigation ------------------ */
+        .nav a {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            color: #ccc;
+
+            text-decoration: none;
+            transition: 0.3s;
+            /* color: #ccc;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s; */
+        }
+
+        .nav button {
+
+            /* align-items: center;
+            padding: 10px 0;
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s; */
+            color: #ccc;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+            border: none;
+            background-color: #1c1f26;
+        }
+
+         .nav button:hover {
+            color: #fff;
+        }
+
+        .nav a:hover {
+            color: #fff;
+        }
+
+        .nav button:hover {
+            color: #fff;
+        }
+
+
+        /* ------------------ Main Content ------------------ */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: #f4f7fa;
+            min-height: 100vh;
+        }
+
+        .firstp {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .form2 {
+
+            margin-top: 15px;
+
+
+        }
+
+        .formdiv1 {
+            padding: 20px;
+
+        }
+
+        .formdiv1 input {
+
+
+            margin-left: 10px;
+            padding: 5px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .formdiv2 {
+            padding: 20px;
+        }
+
+        .formdiv2 input {
+            width: 300px;
+            max-width: 300px;
+            margin-left: 10px;
+            padding: 5px;
+            margin-bottom: 20px;
+
+        }
+
+        .button {
+            padding: 10px;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            width: 200px;
+            margin-top: 30px;
+            margin-left: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">CRM</div>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" />
+                <div class="welcome">
+                    <p><strong>Welcome</strong><br />
+                        <%= user.name %>
+                    </p>
+                    <span class="status online">● Online</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="">BROWSE</a></li>
+                    <li> <a href="/dashboard/<%=user._id%>" class="fas fa-home"> Dashboard</a></li>
+
+                    <li>
+                        <form action="/change_password" method="post">
+                            <input type="hidden" name="id" value="<%=user._id%>">
+                            <button type="submit">change password</button>
+                        </form>
+                    </li>
+                    <li> <a href="/profile/<%=user._id%>">Profile</a></li>
+                    <li><a href="/req_quote/<%=user._id%>"><i class="fas fa-file-alt"></i> Request a Quote</a></li>
+                    <li><a href="/manage-quotes/<%=user._id%>">Quotes History</a></li>
+                    <li><a href="/create_ticket/<%=user.id%>">Create Ticket</a></li>
+                    <li><a href="#"><i class="fas fa-eye"></i> View Ticket</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <p class="firstp">
+                Request a Quote
+            </p>
+            <p>please click below mention services of your interest to receive quotation for the same</p>
+
+            <form action="/submitRequestquote" method="post" class="form2">
+                <input type="hidden" name="id" value="<%=user._id%>">
+                <div style="display: flex; flex-direction: column; ">
+                    <div class="formdiv1" style="display: flex;justify-content: space-between;justify-items: center;">
+                        <div style="display: flex;">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" value="<%=user.name%>" disabled>
+                        </div>
+
+
+                        <div style="display: flex;">
+                            <label for="Email">Email</label>
+                            <input type="email" name="email" value="<%=user.email%>" disabled>
+                        </div>
+
+                    </div>
+
+
+                    <div class="formdiv2" style="display: flex;justify-content: space-between;justify-items: center;">
+                        <div style="display: flex;">
+                            <label for="contactno">Contact No</label>
+                            <input type="text" name="contact" value="<%=user.contact%>" disabled>
+                        </div>
+
+
+                        <div style="display: flex;">
+                            <label for="company">Company</label>
+                            <input type="text" name="company" id="company">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- <label><input type="checkbox" name="services[]" value="Webdev"> Webdev</label><br><br>
+                <label><input type="checkbox" name="services[]" value="Appdev"> Appdev</label><br><br>
+                <label><input type="checkbox" name="services[]" value="fullstack"> fullstack</label><br><br>
+                <label><input type="checkbox" name="services[]" value="flutter">flutter</label><br><br>
+                <label><input type="checkbox" name="services[]" value="Web hosting services">Web hosting
+                    services</label><br><br>
+                <label><input type="checkbox" name="services[]" value="Online payment integration">Online payment
+                    integration</label><br><br>
+
+                <br> -->
+                <div style="display: flex;">
+                    Service Required:<div style="padding: 20px; width: 50%; margin-left: 30px;">
+                        <label><input type="checkbox" name="services[]" value="Webdev"> Webdev</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="Appdev"> Appdev</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="fullstack"> fullstack</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="flutter"> flutter</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="Web hosting services"> Web hosting
+                            services</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="Online payment integration"> Online
+                            payment
+                            integration</label><br><br>
+
+                    </div>
+                    <div style="padding: 20px;">
+                        <label><input type="checkbox" name="services[]" value="Machine learning"> Machine
+                            learning</label><br><br>
+                        <label><input type="checkbox" name="services[]"
+                                value="CMS(content Management System)">CMS(content Management System)</label><br><br>
+                        <label><input type="checkbox" name="services[]"
+                                value="SMO(Social Media Optimization)">SMO(Social Media Optimization)</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="Dynamic Webiste Design"> Dynamic Webiste
+                            Design</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="Domain Registration">Domain
+                            Registration</label><br><br>
+                        <label><input type="checkbox" name="services[]" value="Website Maintenance"> Website
+                            Maintenance</label><br><br>
+                    </div>
+
+                </div>
+
+                <textarea name="query" id="query" style="width: 300px; height: 100px; margin-left: 150px; resize: none;"
+                    placeholder="Enter your query here..."></textarea>
+
+
+                <div>
+                    <button type="reset" class="button">Clear Form</button>
+                    <button type="submit" class="button" onclick="alert('query receive we will connect you soon')">submit</button>
+
+                </div>
+
+
+            </form>
+
+            <!-- EDIT BUTTON -->
+
+
+        </main>
+    </div>
+
+
+
+
+</body>
+
+</html>

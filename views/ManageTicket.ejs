@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM | Admin Dashboard</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background-color: #2e3b4e;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .profile p {
+            line-height: 1.4;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        nav ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding-left: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+
+        }
+
+        .box {
+            width: calc(100% - 60px);
+            max-width: 1000px;
+            background-color: white;
+            min-height: 100px;
+            margin: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .bigbox {
+            width: 100%;
+            min-height: calc(100vh - 40px);
+            background-color: #f0f3f6;
+            padding-top: 40px;
+            display: block;
+        }
+
+        .home {
+            display: flex;
+            padding: 10px 30px;
+            align-items: center;
+        }
+
+        .home a {
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .home a:hover {
+            color: #1c1f26;
+        }
+
+        .p1 {
+            padding: 10px 30px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+        .main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.box {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.box:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.box p {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+button {
+  padding: 8px 14px;
+  background-color: #2e3b4e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1c2635;
+}
+
+.box form textarea {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.box form input[type="submit"] {
+  padding: 8px 16px;
+  background-color: #2e3b4e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.box form input[type="submit"]:hover {
+  background-color: #1c2635;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>CRM | Admin</h2>
+            <div class="profile">
+                <img src="https://img.icons8.com/ios-filled/50/administrator-male.png" alt="admin">
+                <p>Welcome<br><strong>Admin</strong></p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/admindashboard" style="text-decoration: none; color: white;">Dashboard</a></li>
+                    <li><a href="/adimnchangepassword"  style="text-decoration: none; color: white;">Change Password</a></li>
+          <li><a href="/adminusers"  style="text-decoration: none; color: white;">Users</a></li>
+                    <li><a href="/manageticket" style="text-decoration: none; color: white;">Manage Ticket</a></li>
+                    <li><a href="/adminmanageqoutes" style="text-decoration: none; color: white;">Manage Quotes</a></li>
+                    <li><a href="" style="text-decoration: none; color: white;"> User Access Log</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="bigbox">
+                <div class="home">
+                    <a href="/admindashboard">Home</a>
+                    <a href="">view ticket</a>
+                </div>
+                <p class="p1"> Ticket support </p>
+                <%i=1%>
+                    <% users.forEach(user=> { %>
+
+                        <div class="box">
+
+
+                            <p>
+                                <%=user.subject%>
+                            </p>
+                            <p>
+                               <span style="color: blue;">Ticket# <%=i++%></span>  <span>Created on  <%=user.date%></span>
+                            </p>
+
+                            
+
+                            <p>
+                                <%=user.description%>
+                            </p>
+                            <button onclick="myfunction(this)">view</button>
+
+                            <div class="box" style="display: none;">
+                                <form action="/ticketresponse" method="post"
+                                    onsubmit="alert('ticket has been updated')">
+                                    <input type="hidden" name="id" value="<%=user._id%>">
+                                    <textarea name="adminresponse" style="padding: 5px;"><%= user.adminresponse%></textarea>
+                                    <input type="submit" value="update">
+                                </form>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+
+
+
+                        <% }) %>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function myfunction(btn) {
+            // Find the next sibling div with class 'box' and toggle it
+            let targetDiv = btn.nextElementSibling;
+            if (targetDiv && targetDiv.classList.contains('box')) {
+                targetDiv.style.display = targetDiv.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

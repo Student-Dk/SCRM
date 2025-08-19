@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration page</title>
+</head>
+<body>
+    <form action="/update/<%=user._id%>" method="post">
+        <label for="name">Name</label>
+        <br>
+        <input type="text" name="name" id="name" value="<%=user.name%>">
+        <br><br>
+        Email
+        <label for="Email">Email</label>
+        <br>
+        <input type="email" name="email" id="email" value="<%=user.email%>">
+        <br><br>
+        <label for="password">password</label>
+        <br>
+        <input type="password" name="password" id="password" value="<%=user.password%>" hidden>
+        <br><br>
+        <label for="conatct us">conatct us</label>
+        <br>
+        <input type="text" name="contact" id="contact" value="<%=user.contact%>">
+        <br><br>
+        <label for="gender">gender</label>
+        <br>
+        <input type="radio" name="gender" id="gender" value="male">Male
+        <input type="radio" name="gender" id="gender" value="Female">Female
+        <br><br>
+
+        <input type="submit" name="submi" id="submit">
+        
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRM | Admin Dashboard</title>
+<style>
+    /* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #2e3b4e;
+  color: #fff;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+}
+
+.profile p {
+  line-height: 1.4;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 5px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+table,th,tr,td{
+    border-collapse: collapse;
+    padding: 25px;
+    border: 2px solid black;
+}
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #2e3b4e;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+a {
+  color: #2e3b4e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>CRM | Admin</h2>
+      <div class="profile">
+        <img src="https://img.icons8.com/ios-filled/50/administrator-male.png" alt="admin">
+        <p>Welcome<br><strong>Admin</strong></p>
+      </div>
+      <nav>
+        <ul>
+  <li><a href="/admindashboard" style="text-decoration: none; color: white;">Dashboard</a></li>
+          <li><a href="/adimnchangepassword"  style="text-decoration: none; color: white;">Change Password</a></li>
+          <li><a href="/adminusers"  style="text-decoration: none; color: white;">Users</a></li>
+          <li><a href="/manageticket"  style="text-decoration: none; color: white;">Manage Ticket</a></li>
+          <li><a href="/adminmanageqoutes"  style="text-decoration: none; color: white;">Manage Quotes</a></li>
+          <li><a href=""  style="text-decoration: none; color: white;"> User Access Log</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+    <table>
+    <tr><th>#</th><th>Name</th><th>Email</th><th>Age</th><th>sevices</th><th>Actions</th></tr>
+    <%  i=1 %>
+    <% users.forEach(user => { %>
+        <tr>
+            <td><%=i++%></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.contact %></td>
+            <td><%= user.services %></td>
+            <td>
+                <a href="/adminview/<%= user._id %>">open</a>
+                
+            </td>
+        </tr>
+    <% }) %>
+</table>
+      </main>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: #f0f3f6;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1c1f26;
+            min-height: 100vh;
+            padding: 20px;
+            color: white;
+            position: fixed;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .welcome {
+            font-size: 14px;
+            color: white;
+        }
+
+        .statusonline {
+            display: block;
+            font-size: 10px;
+            color: rgb(36, 234, 36);
+        }
+
+        .nav a {
+            display: block;
+            align-items: center;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #cfc9c9;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .nav li {
+            list-style-type: none;
+            margin-bottom: 5px;
+        }
+
+        .nav button {
+            background: none;
+            border: none;
+            color: #cfc9c9;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 10px 0;
+            width: 100%;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .nav button:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            flex-grow: 1;
+            margin-left: 250px;
+            background-color: #f4f7fa;
+            min-height: 100vh;
+        }
+
+        .box {
+            width: calc(100% - 60px);
+            max-width: 1000px;
+            background-color: white;
+            min-height: 500px;
+            margin: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .bigbox {
+            width: 100%;
+            min-height: calc(100vh - 40px);
+            background-color: #f0f3f6;
+            padding-top: 40px;
+            display: block;
+        }
+
+        .p1 {
+            padding: 10px 30px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .home {
+            display: flex;
+            padding: 10px 30px;
+            align-items: center;
+        }
+
+        .home a {
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .home a:hover {
+            color: #1c1f26;
+        }
+
+        .home a:last-child {
+            color: #1c1f26;
+        }
+
+        /* Quote Details Styles */
+        .quote-details {
+            margin-top: 20px;
+        }
+
+        .quote-details p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .quote-details p strong {
+            color: #1c1f26;
+            font-weight: 600;
+            margin-right: 10px;
+            display: inline-block;
+            width: 150px;
+        }
+
+        .quote-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .quote-section h3 {
+            color: #1c1f26;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .quote-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-approved {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">SCRM</div>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="user">
+                <div class="welcome">
+                    <p><Strong>Welcome</Strong><br>
+                        <%=user.name%>
+                    </p>
+                    <span class="statusonline">● Online</span>
+
+                </div>
+
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="">BROWSE</a></li>
+                    <li><a href="/dashboard/<%=user._id%>">Dashboard</a></li>
+                    <li>
+                        <form action="/change_password" method="post">
+                            <input type="hidden" name="id" value="<%=user._id%>">
+                            <button type="submit">change password</button>
+                        </form>
+                    </li>
+                    <li><a href="/profile/<%=user._id%>">Profile</a></li>
+                    <li><a href="/req_quote/<%=user._id%>">Request a Quote</a></li>
+                    <li><a href="/manage-quotes/<%=user._id%>">Quotes History</a></li>
+                  <li><a href="/create_ticket/<%=user.id%>">Create Ticket</a></li>
+
+                     <li><td><a href="/quote_details/<%=user._id%>">view</a></td></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div class="bigbox">
+                <div class="home">
+                    <a href="/dashboard/<%=user._id%>">Home</a>
+                    <a href="">Create ticket</a>
+                </div>
+                <p class="p1"> Create ticket </p>
+
+                <div class="box">
+                    <form action="/submitticket" method="post">
+                        <input type="hidden" name="userid" value="<%=user._id%>">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" style="margin-left: 39px; padding: 5px;">
+                        <br><br><br>
+                        <label for="tasktype">tasktype</label>
+
+                        <select name="tasktype" id="tasktype" style="width: 170px; margin-left: 33px; padding: 5px;">
+                            <option value="Billing">Billing</option>
+                            <option value="option 1">option 1</option>
+                            <option value="option 2">option 2</option>
+                        </select>
+
+                        <br><br><br>
+                        <label for="priority">priority</label>
+
+                        <select name="priority" id="priority" style="width: 170px; margin-left: 43px; padding: 5px;">
+                            <option value="important">important</option>
+                            <option value="Question">Question</option>
+                            <option value="Question">Questions</option>
+                        </select>
+                        <br><br>
+                        <!-- <label for="discription">Description</label> -->
+                         <p>Description</p>
+                        <textarea name="description" id="query"
+                            style="width: 300px; height: 100px; margin-left: 100px; resize: none; padding: 5px;"></textarea>
+                           
+
+                        <div style="display: flex;">
+                            <button type="reset" style="margin-top: 20px; width: 80px; color: white;background-color: blue; cursor: pointer; padding: 5px;">Clear</button>
+                            <button type="submit" style="margin-left: 400px; margin-top: 20px; width: 80px;color:  white;background-color: blue; cursor: pointer; padding: 5px;" onclick="alert('Ticket generated')">Send</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+
+        </main>
+    </div>
+</body>
+
+</html>

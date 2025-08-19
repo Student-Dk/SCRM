@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRM | Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/admin.css"/>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>CRM | Admin</h2>
+      <div class="profile">
+        <img src="https://img.icons8.com/ios-filled/50/administrator-male.png" alt="admin">
+        <p>Welcome<br><strong>Admin</strong></p>
+      </div>
+      <nav>
+        <ul>
+     <li><a href="/admindashboard" style="text-decoration: none; color: white; ">Dashboard</a></li>
+          <li><a href="/adimnchangepassword"  style="text-decoration: none; color: white;">Change Password</a></li>
+          <li><a href="/adminusers"  style="text-decoration: none; color: white;">Users</a></li>
+          <li><a href="/manageticket"  style="text-decoration: none; color: white;">Manage Ticket</a></li>
+          <li><a href="/adminmanageqoutes"  style="text-decoration: none; color: white;">Manage Quotes</a></li>
+          <li><a href=""  style="text-decoration: none; color: white;"> User Access Log</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="cards">
+        <div class="card teal">
+          <h3>Overall Visitors</h3>
+          <p>Overall Visitors: <strong>4</strong></p>
+          <p>Today: <strong></strong></p>
+        </div>
+        <div class="card blue">
+          <h3>Registered Users</h3>
+          <p>Registered Users: <strong><%=regs%></strong></p>
+          <p>Today's: <strong></strong></p>
+        </div>
+        <div class="card purple">
+          <h3>Quote Requests</h3>
+          <p>Overall Quotes: <strong></strong></p>
+          <p>New Quotes's: <strong></strong></p>
+          <p>In Progress: <strong></strong></p>
+        </div>
+        <div class="card red">
+          <h3>Overall Tickets</h3>
+          <p>All Tickets: <strong><%=alltk%></strong></p>
+          <p>Pending Tickets: <strong></strong></p>
+        </div>
+      </div>
+
+      <div class="chart-section">
+        <h3>Daily Visitors Chart of April</h3>
+        <img src="https://via.placeholder.com/700x300?text=Chart+Goes+Here" alt="chart" />
+        <a href="#" class="details-link">View Details</a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

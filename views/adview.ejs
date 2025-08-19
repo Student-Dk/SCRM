@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRM | Admin Dashboard</title>
+<style>
+    /* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #2e3b4e;
+  color: #fff;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+}
+
+.profile p {
+  line-height: 1.4;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 5px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+  .box {
+            width: calc(100% - 60px);
+            max-width: 1000px;
+            background-color: white;
+            min-height: 400px;
+            margin: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .bigbox {
+            width: 100%;
+            min-height: calc(100vh - 40px);
+            background-color: #f0f3f6;
+            padding-top: 40px;
+            display: block;
+        }
+
+        .p1 {
+            padding: 10px 30px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .home {
+            display: flex;
+            padding: 10px 30px;
+            align-items: center;
+        }
+
+        .home a {
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .home a:hover {
+            color: #1c1f26;
+        }
+        
+</style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>CRM | Admin</h2>
+      <div class="profile">
+        <img src="https://img.icons8.com/ios-filled/50/administrator-male.png" alt="admin">
+        <p>Welcome<br><strong>Admin</strong></p>
+      </div>
+      <nav>
+        <ul>
+         <li><a href="/admindashboard" style="text-decoration: none; color: white;">Dashboard</a></li>
+          <li><a href="/adimnchangepassword"  style="text-decoration: none; color: white;">Change Password</a></li>
+          <li><a href="/adminusers"  style="text-decoration: none; color: white;">Users</a></li>
+          <li><a href="/manageticket"  style="text-decoration: none; color: white;">Manage Ticket</a></li>
+          <li><a href="/adminmanageqoutes"  style="text-decoration: none; color: white;">Manage Quotes</a></li>
+          <li><a href=""  style="text-decoration: none; color: white;"> User Access Log</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+<div class="bigbox"> 
+            <div class="home" >
+                <a href="/dashboard/<%=user._id%>">Home</a>
+                <a href="">Query Details</a>
+            </div> 
+           <p class="p1"> Quote Details</p>
+          
+        <div class="box">
+
+ <p style="margin-bottom: 10px;"><%=user.name%> Quote Details</p>
+    <div style="display: flex; ">
+        <p style="font-weight: bold;">Name</p>
+        <p style="margin-left: 10px;"><%=user.name%></p>
+    </div>
+     <div style="display: flex; ">
+        <p style="font-weight: bold;">Email</p>
+        <p style="margin-left: 10px;"><%=user.email%></p>
+    </div>
+     <div style="display: flex; ">
+        <p style="font-weight: bold;">Contact no</p>
+        <p style="margin-left: 10px;"><%=user.contact%></p>
+    </div>
+     <div style="display: flex; ">
+        <p style="font-weight: bold;">Company</p>
+        <p style="margin-left: 10px;"><%=user.company%></p>
+    </div>
+
+    <p style="font-weight: bold; margin-top: 10px;">Required services</p>
+
+    <p><%=user.services%></p>
+
+    <p style="font-weight: bold; margin-top: 10px;">Description</p>
+    <p ><%=user.query%></p>
+
+    <p style="font-weight: bold; margin-top: 10px;">Remark</p>
+     <form action="/remark" method="post">
+        <input type="hidden" name="id" value="<%=user._id%>">
+       <textarea name="remark" id="remark"><%= user.remark || '' %></textarea>
+        <button type="submit">Update</button>
+     </form>
+        </div> 
+        </div>
+
+
+
+      </main>
+  </div>
+</body>
+</html>
+

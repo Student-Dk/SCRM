@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRM | Admin Dashboard</title>
+<style>
+    /* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #2e3b4e;
+  color: #fff;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+}
+
+.profile p {
+  line-height: 1.4;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 5px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>CRM | Admin</h2>
+      <div class="profile">
+        <img src="https://img.icons8.com/ios-filled/50/administrator-male.png" alt="admin">
+        <p>Welcome<br><strong>Admin</strong></p>
+      </div>
+      <nav>
+        <ul>
+         <li><a href="/admindashboard" style="text-decoration: none; color: white;">Dashboard</a></li>
+          <li><a href="/adimnchangepassword"  style="text-decoration: none; color: white;">Change Password</a></li>
+          <li><a href="/adminusers"  style="text-decoration: none; color: white;">Users</a></li>
+          <li><a href="/manageticket"  style="text-decoration: none; color: white;">Manage Ticket</a></li>
+          <li><a href="/adminmanageqoutes"  style="text-decoration: none; color: white;">Manage Quotes</a></li>
+          <li><a href=""  style="text-decoration: none; color: white;"> User Access Log</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+        <form action="/adminedit" method="post">
+            <input type="hidden" name="id" value="<%=user._id%>">
+            <label for="name">name</label>
+            <input type="text" name="name" id="name" value="<%=user.name%>"><br><br>
+            <label for="email">email</label>
+            <input type="email" name="email" value="<%=user.email%>" disabled><br><br>
+            <label for="contact">contact </label>
+            <input type="text" name="contact" id="contact" value="<%=user.contact%>"><br><br>
+            <label for="address">address</label>
+            <textarea name="address" id="address" ><%= user.address || '' %></textarea>
+            <button type="submit">Update</button>
+        </form>
+      </main>
+  </div>
+</body>
+</html>
+

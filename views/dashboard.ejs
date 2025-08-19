@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dash.css">
+</head>
+
+<body>
+
+    <div class="Maindiv">
+        <!-- ----------------------------//////////////////////////////////////////----------------------->
+        <div class="div1">
+
+            <p>CRM </p>
+            <div class="user-info">
+                <div class="user-img">
+                     <img src="https://www.w3schools.com/howto/img_avatar.png" alt="user">
+                </div>
+                <div class="user-text">
+                    <p>Welcome</p>
+                    <p>
+                        <%= user.name %>
+                    </p>
+                    <p class="online">● Online</p>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="">BROWSE</a></li>
+                    <li><a href="/dashboard/<%=user._id%>"><i class="fas fa-home"></i> Dashboard</a></li>
+
+                    <li>
+                        <form action="/change_password" method="post">
+                            <input type="hidden" name="id" value="<%=user._id%>">
+                            <button type="submit" style="background-color: #1c1f26;">change password</button>
+                        </form>
+                    </li>
+                    <li><a href="/profile/<%=user._id%>">Profile</a></li>
+                    <li><a href="/req_quote/<%=user._id%>">Request a Quote</a></li>
+                     <li><a href="/manage-quotes/<%=user._id%>">Quotes History</a></li>
+                    <li><a href="/create_ticket/<%=user.id%>">Create Ticket</a></li>
+
+                    <li> <td><a href="/vtc/<%=user._id%>">view</a></td>
+</li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- ---------------------------------------------------------------------------------Righ prat -->
+        <div class="div2">
+            <p>Dashboard</p>
+            <div>
+                <div><a href="/vtc/<%=user._id%>"><%=count%> | View Ticket</a></div>
+                <div><a href="/manage-quotes/<%=user._id%>">Get Quote</a></div>
+                <div><a href="/profile/<%=user._id%>">My Proflie</a></div>
+                <div><a href="/create_ticket/<%=user.id%>">Create Ticket</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
